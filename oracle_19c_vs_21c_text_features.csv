@@ -1,0 +1,10 @@
+Feature,Oracle 19c,Oracle 21c,Notes
+BASIC_LEXER support,Yes,Yes,"Available in both versions, core for Oracle Text indexing"
+NEAR operator,Yes,Yes,Supported as default proximity operator (~100 words)
+NEARn operator (e.g. NEAR5),No,Yes,Only supported in 21c with updated parser
+AUTO_SECTION_GROUP for structured queries,Limited,Improved,"Enhanced support in 21c, may require manual config in 19c"
+Advanced parser with NEARn + field grouping,No,Yes,New parser introduced in 21c enables this
+CTXCAT / CTXRULE index improvements,Yes,Yes,Both support rule-based matching and classification
+JSON indexing support for Text,Limited,Full,21c has stronger support for full-text on JSON columns
+WORLD_LEXER availability,Yes (manual setup),Yes,More natively integrated in 21c
+Improved scoring and ranking with SCORE(),Yes,Yes,No major changes
