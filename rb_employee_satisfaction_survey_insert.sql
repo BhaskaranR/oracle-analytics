@@ -109,11 +109,20 @@ INSERT INTO rb_word_groups (group_name, words) VALUES ('#bacghr_team', '"team" O
 INSERT INTO rb_word_groups (group_name, words) VALUES ('#bacghr_support', '"support" OR "assistance" OR "help" OR "aid"');
 
 -- Comment Rules
-INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) VALUES ('Client Satisfaction', '#bacghr_client NEAR #bacghr_support WITHIN 5', NULL);
-INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) VALUES ('Internal Mobility', '#bacghr_internalmove NEAR opportunity WITHIN 4', 'attorney OR contractor');
-INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) VALUES ('Career Growth', '#bacghr_career NEAR lacking WITHIN 6', NULL);
-INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) VALUES ('Onboarding', '#bacghr_onboarding NEAR helpful WITHIN 3', NULL);
-INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) VALUES ('Team Culture', '#bacghr_team NEAR issues WITHIN 2', '#bacghr_client');
+INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) 
+VALUES ('Client Satisfaction', '#bacghr_client NEAR5 #bacghr_support', NULL);
+
+INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) 
+VALUES ('Internal Mobility', '#bacghr_internalmove NEAR4 opportunity', 'attorney OR contractor');
+
+INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) 
+VALUES ('Career Growth', '#bacghr_career NEAR6 lacking', NULL);
+
+INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) 
+VALUES ('Onboarding', '#bacghr_onboarding NEAR3 helpful', NULL);
+
+INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) 
+VALUES ('Team Culture', '#bacghr_team NEAR2 issues', '#bacghr_client');
 
 
 -- Sample Queries
@@ -122,22 +131,22 @@ INSERT INTO rb_comment_rules (topic, rule_expr_raw, exclude_expr_raw) VALUES ('T
 SELECT c.id, c.comment_text, r.topic
 FROM rb_survey_comments c
 JOIN rb_comment_rules r
-  ON CONTAINS(c.comment_text, expand_macros(r.rule_expr_raw), 1) > 0
+  ON CONTAINS(c.comment_text, rb_expand_macros(r.rule_expr_raw), 1) > 0
 WHERE r.exclude_expr_raw IS NULL 
-   OR CONTAINS(c.comment_text, expand_macros(r.exclude_expr_raw), 2) = 0;
+   OR CONTAINS(c.comment_text, rb_expand_macros(r.exclude_expr_raw), 2) = 0;
 
 -- Highlighted matched snippet
 SELECT c.id,
-       CTX_DOC.SNIPPET('comment_text_idx', c.id, expand_macros(r.rule_expr_raw)) AS snippet
+       CTX_DOC.SNIPPET('comment_text_idx', c.id, rb_expand_macros(r.rule_expr_raw)) AS snippet
 FROM rb_survey_comments c
 JOIN rb_comment_rules r
-  ON CONTAINS(c.comment_text, expand_macros(r.rule_expr_raw), 1) > 0;
+  ON CONTAINS(c.comment_text, rb_expand_macros(r.rule_expr_raw), 1) > 0;
 
 -- Summary count by topic
 SELECT r.topic, COUNT(*) AS match_count
 FROM rb_survey_comments c
 JOIN rb_comment_rules r
-  ON CONTAINS(c.comment_text, expand_macros(r.rule_expr_raw), 1) > 0
+  ON CONTAINS(c.comment_text, rb_expand_macros(r.rule_expr_raw), 1) > 0
 WHERE r.exclude_expr_raw IS NULL 
-   OR CONTAINS(c.comment_text, expand_macros(r.exclude_expr_raw), 2) = 0
+   OR CONTAINS(c.comment_text, rb_expand_macros(r.exclude_expr_raw), 2) = 0
 GROUP BY r.topic;
