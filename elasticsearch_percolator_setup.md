@@ -25,6 +25,9 @@ PUT /comment_rules
 {
   "mappings": {
     "properties": {
+      "query": {
+        "type": "percolator"
+      },
       "text": {
         "type": "text",
         "term_vector": "with_positions_offsets",
