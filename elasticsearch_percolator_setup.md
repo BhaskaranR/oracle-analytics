@@ -91,154 +91,36 @@ POST /comment_rules/_doc
 
 POST /comment_rules/_doc
 // POST _bulk
-{ 
-  "index": { "_index": "comment_rules", "_id": "1" }
-}
-{
-  "topic": "Client Satisfaction",
-  "group_refs": ["#bacghr_client", "#bacghr_support"],
-  "query": {
-    "bool": {
-      "should": [
-        {
-          "span_near": {
-            "clauses": [
-              { "span_multi": { "match": { "wildcard": { "text": "client" } } } },
-              { "span_multi": { "match": { "wildcard": { "text": "support" } } } }
-            ],
-            "slop": 5,
-            "in_order": false
-          }
-        }
-      ]
-    }
-  }
-}
-
+{ "index": { "_index": "comment_rules", "_id": "1" } }
+{ "topic": "Client Satisfaction", "group_refs": ["#bacghr_client", "#bacghr_support"], "query": { "bool": { "should": [ { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "client" } } } }, { "span_multi": { "match": { "wildcard": { "text": "support" } } } } ], "slop": 5, "in_order": false } } ] } } }
 { "index": { "_index": "comment_rules", "_id": "2" } }
-{
-  "topic": "Internal Mobility",
-  "query": {
-    "span_near": {
-      "clauses": [
-        { "span_or": { "clauses": [
-          { "span_multi": { "match": { "wildcard": { "text": "internal" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "transfer" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "from_within" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "lateral" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "IJP" } } } }
-        ] } },
-        { "span_multi": { "match": { "wildcard": { "text": "opportunity" } } } }
-      ],
-      "slop": 4,
-      "in_order": false
-    }
-  }
-}
-
+{ "topic": "Internal Mobility", "query": { "span_near": { "clauses": [ { "span_or": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "internal" } } } }, { "span_multi": { "match": { "wildcard": { "text": "transfer" } } } }, { "span_multi": { "match": { "wildcard": { "text": "from_within" } } } }, { "span_multi": { "match": { "wildcard": { "text": "lateral" } } } }, { "span_multi": { "match": { "wildcard": { "text": "IJP" } } } } ] } }, { "span_multi": { "match": { "wildcard": { "text": "opportunity" } } } } ], "slop": 4, "in_order": false } } }
 { "index": { "_index": "comment_rules", "_id": "3" } }
-{
-  "topic": "Career Growth",
-  "query": {
-    "span_near": {
-      "clauses": [
-        { "span_or": { "clauses": [
-          { "span_multi": { "match": { "wildcard": { "text": "career" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "promotion" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "growth" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "development" } } } }
-        ] } },
-        { "span_multi": { "match": { "wildcard": { "text": "lacking" } } } }
-      ],
-      "slop": 6,
-      "in_order": false
-    }
-  }
-}
-
+{ "topic": "Career Growth", "query": { "span_near": { "clauses": [ { "span_or": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "career" } } } }, { "span_multi": { "match": { "wildcard": { "text": "promotion" } } } }, { "span_multi": { "match": { "wildcard": { "text": "growth" } } } }, { "span_multi": { "match": { "wildcard": { "text": "development" } } } } ] } }, { "span_multi": { "match": { "wildcard": { "text": "lacking" } } } } ], "slop": 6, "in_order": false } } }
 { "index": { "_index": "comment_rules", "_id": "4" } }
-{
-  "topic": "Onboarding",
-  "query": {
-    "span_near": {
-      "clauses": [
-        { "span_or": { "clauses": [
-          { "span_multi": { "match": { "wildcard": { "text": "onboarding" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "orientation" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "induction" } } } }
-        ] } },
-        { "span_multi": { "match": { "wildcard": { "text": "helpful" } } } }
-      ],
-      "slop": 3,
-      "in_order": false
-    }
-  }
-}
-
+{ "topic": "Onboarding", "query": { "span_near": { "clauses": [ { "span_or": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "onboarding" } } } }, { "span_multi": { "match": { "wildcard": { "text": "orientation" } } } }, { "span_multi": { "match": { "wildcard": { "text": "induction" } } } } ] } }, { "span_multi": { "match": { "wildcard": { "text": "helpful" } } } } ], "slop": 3, "in_order": false } } }
 { "index": { "_index": "comment_rules", "_id": "5" } }
-{
-  "topic": "Team Culture",
-  "query": {
-    "span_near": {
-      "clauses": [
-        { "span_or": { "clauses": [
-          { "span_multi": { "match": { "wildcard": { "text": "team" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "collaboration" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "cooperation" } } } },
-          { "span_multi": { "match": { "wildcard": { "text": "group" } } } }
-        ] } },
-        { "span_multi": { "match": { "wildcard": { "text": "issues" } } } }
-      ],
-      "slop": 2,
-      "in_order": false
-    }
-  }
-}
-
-
+{ "topic": "Team Culture", "query": { "span_near": { "clauses": [ { "span_or": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "team" } } } }, { "span_multi": { "match": { "wildcard": { "text": "collaboration" } } } }, { "span_multi": { "match": { "wildcard": { "text": "cooperation" } } } }, { "span_multi": { "match": { "wildcard": { "text": "group" } } } } ] } }, { "span_multi": { "match": { "wildcard": { "text": "issues" } } } } ], "slop": 2, "in_order": false } } }
 { "index": { "_index": "comment_rules", "_id": "6" } }
 { "topic": "Leadership Feedback", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "leadership" } } } }, { "span_multi": { "match": { "wildcard": { "text": "feedback" } } } } ], "slop": 5, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "7" } }
 { "topic": "Work Environment", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "environment" } } } }, { "span_multi": { "match": { "wildcard": { "text": "stressful" } } } } ], "slop": 4, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "8" } }
 { "topic": "Support Experience", "query": { "bool": { "should": [ { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "support" } } } }, { "span_multi": { "match": { "wildcard": { "text": "experience" } } } } ], "slop": 5, "in_order": false } }, { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "assistance" } } } }, { "span_multi": { "match": { "wildcard": { "text": "feedback" } } } } ], "slop": 5, "in_order": false } } ] } } }
-
 { "index": { "_index": "comment_rules", "_id": "9" } }
 { "topic": "Promotion Issues", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "promotion" } } } }, { "span_multi": { "match": { "wildcard": { "text": "denied" } } } } ], "slop": 6, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "10" } }
 { "topic": "Client Concerns", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "customer" } } } }, { "span_multi": { "match": { "wildcard": { "text": "issue" } } } } ], "slop": 5, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "11" } }
 { "topic": "Internal Transfers", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "transfer" } } } }, { "span_multi": { "match": { "wildcard": { "text": "within" } } } } ], "slop": 4, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "12" } }
 { "topic": "Career Frustration", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "growth" } } } }, { "span_multi": { "match": { "wildcard": { "text": "blocked" } } } } ], "slop": 6, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "13" } }
 { "topic": "Teamwork Challenge", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "team" } } } }, { "span_multi": { "match": { "wildcard": { "text": "dysfunction" } } } } ], "slop": 4, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "14" } }
 { "topic": "Onboarding Problems", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "induction" } } } }, { "span_multi": { "match": { "wildcard": { "text": "confusing" } } } } ], "slop": 3, "in_order": false } } }
-
 { "index": { "_index": "comment_rules", "_id": "15" } }
 { "topic": "Customer Help", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "end user" } } } }, { "span_multi": { "match": { "wildcard": { "text": "aid" } } } } ], "slop": 4, "in_order": false } } }
-
-{ "index": { "_index": "comment_rules", "_id": "16" } }
-{ "topic": "Leadership Growth", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "leadership" } } } }, { "span_multi": { "match": { "wildcard": { "text": "development" } } } } ], "slop": 5, "in_order": false } } }
-
-{ "index": { "_index": "comment_rules", "_id": "17" } }
-{ "topic": "Support Complaints", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "support" } } } }, { "span_multi": { "match": { "wildcard": { "text": "delayed" } } } } ], "slop": 4, "in_order": false } } }
-
-{ "index": { "_index": "comment_rules", "_id": "18" } }
-{ "topic": "Collaboration Wins", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "collaboration" } } } }, { "span_multi": { "match": { "wildcard": { "text": "success" } } } } ], "slop": 3, "in_order": false } } }
-
-{ "index": { "_index": "comment_rules", "_id": "19" } }
-{ "topic": "Helpfulness of Induction", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "orientation" } } } }, { "span_multi": { "match": { "wildcard": { "text": "helpful" } } } } ], "slop": 3, "in_order": false } } }
-
-
 
 
 POST /comments/_bulk
