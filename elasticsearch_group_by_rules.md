@@ -9,29 +9,10 @@ Elasticsearch does **not support SQL-style joins**, so you **cannot directly gro
 Send multiple queries (one per rule) in a single request:
 
 ```bash
-POST /comments/_msearch
 { }
-{ "query": { "span_near": {
-      "clauses": [
-        { "span_term": { "comment_text": "career" } },
-        { "span_term": { "comment_text": "growth" } }
-      ],
-      "slop": 5,
-      "in_order": false
-    }
-  }
-}
+{ "query": { "span_near": { "clauses": [ { "span_term": { "comment_text": "career" } }, { "span_term": { "comment_text": "growth" } } ], "slop": 5, "in_order": false } } }
 { }
-{ "query": { "span_near": {
-      "clauses": [
-        { "span_term": { "comment_text": "internal" } },
-        { "span_term": { "comment_text": "transfer" } }
-      ],
-      "slop": 4,
-      "in_order": false
-    }
-  }
-}
+{ "query": { "span_near": { "clauses": [ { "span_term": { "comment_text": "internal" } }, { "span_term": { "comment_text": "transfer" } } ], "slop": 4, "in_order": false } } }
 ```
 
 Each result block includes `hits.total.value` — the count of matches. You associate each block with the corresponding rule ID/topic.
