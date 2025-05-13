@@ -44,6 +44,27 @@ POST /comments/_bulk
 { "id": 2, "respondent_id": 1002, "comment_text": "Internal transfer was a great opportunity." }
 { "index": { "_id": 3 } }
 { "id": 3, "respondent_id": 1003, "comment_text": "Support from the client was lacking." }
+{ "index": { "_id": 4 } }
+{ "id": 4, "respondent_id": 1004, "comment_text": "There’s a lot of focus on career growth here." }
+{ "index": { "_id": 5 } }
+{ "id": 5, "respondent_id": 1005, "comment_text": "Learning has been continuous and growth is encouraged." }
+{ "index": { "_id": 6 } }
+{ "id": 6, "respondent_id": 1006, "comment_text": "My internal transfer helped me develop new skills." }
+{ "index": { "_id": 7 } }
+{ "id": 7, "respondent_id": 1007, "comment_text": "I feel supported by my team and collaboration is strong." }
+{ "index": { "_id": 8 } }
+{ "id": 8, "respondent_id": 1008, "comment_text": "Internal processes made the transfer smooth." }
+{ "index": { "_id": 9 } }
+{ "id": 9, "respondent_id": 1009, "comment_text": "Client expectations were met with excellent support." }
+{ "index": { "_id": 10 } }
+{ "id": 10, "respondent_id": 1010, "comment_text": "Career advancement opportunities are abundant." }
+{ "index": { "_id": 11 } }
+{ "id": 11, "respondent_id": 1011, "comment_text": "The team values collaboration and open feedback." }
+{ "index": { "_id": 12 } }
+{ "id": 12, "respondent_id": 1012, "comment_text": "Learning initiatives are in place to support growth." }
+{ "index": { "_id": 13 } }
+{ "id": 13, "respondent_id": 1013, "comment_text": "I had a good experience working with the client support team." }
+
 ```
 
 ---
