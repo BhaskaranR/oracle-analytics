@@ -134,45 +134,33 @@ POST /comment_rules/_doc
 { "index": { "_index": "comment_rules", "_id": "15" } }
 { "topic": "Customer Help", "query": { "span_near": { "clauses": [ { "span_multi": { "match": { "wildcard": { "text": "end user" } } } }, { "span_multi": { "match": { "wildcard": { "text": "aid" } } } } ], "slop": 4, "in_order": false } } }
 
+🔽 Comments that will match your rules:
+"I believe client support should be more responsive."
+→ Matches: #bacghr_client + #bacghr_support → "Client Satisfaction"
 
-POST /comments/_bulk
-{ "index": {} }
-{ "text": "The onboarding process was very helpful and smooth.", "created_at": "2024-10-01T10:00:00Z", "user_id": "u001" }
-{ "index": {} }
-{ "text": "I feel there is a lack of career growth opportunities.", "created_at": "2024-10-02T12:30:00Z", "user_id": "u002" }
-{ "index": {} }
-{ "text": "The support team was quick to assist our end users.", "created_at": "2024-10-03T09:15:00Z", "user_id": "u003" }
-{ "index": {} }
-{ "text": "Internal transfers seem rare unless you apply through IJP.", "created_at": "2024-10-04T11:20:00Z", "user_id": "u004" }
-{ "index": {} }
-{ "text": "Orientation sessions were not that useful.", "created_at": "2024-10-05T13:50:00Z", "user_id": "u005" }
-{ "index": {} }
-{ "text": "Team collaboration is great and helps us solve issues quickly.", "created_at": "2024-10-06T15:05:00Z", "user_id": "u006" }
-{ "index": {} }
-{ "text": "Customer support has been inconsistent lately.", "created_at": "2024-10-07T16:40:00Z", "user_id": "u007" }
-{ "index": {} }
-{ "text": "There should be more focus on employee development.", "created_at": "2024-10-08T18:10:00Z", "user_id": "u008" }
-{ "index": {} }
-{ "text": "Transfer opportunities need to be advertised better internally.", "created_at": "2024-10-09T19:55:00Z", "user_id": "u009" }
-{ "index": {} }
-{ "text": "My team lacks proper cooperation to handle complex tasks.", "created_at": "2024-10-10T21:20:00Z", "user_id": "u010" }
-{ "index": {} }
-{ "text": "IJP programs are a good initiative, but awareness is low.", "created_at": "2024-10-11T08:35:00Z", "user_id": "u011" }
-{ "index": {} }
-{ "text": "Growth and development paths should be clearer.", "created_at": "2024-10-12T09:45:00Z", "user_id": "u012" }
-{ "index": {} }
-{ "text": "Induction was confusing without proper documents.", "created_at": "2024-10-13T11:00:00Z", "user_id": "u013" }
-{ "index": {} }
-{ "text": "Helpful and responsive client support made my day.", "created_at": "2024-10-14T12:15:00Z", "user_id": "u014" }
-{ "index": {} }
-{ "text": "User experience was ruined due to poor support.", "created_at": "2024-10-15T14:30:00Z", "user_id": "u015" }
-{ "index": {} }
-{ "text": "The career development portal has very few real options.", "created_at": "2024-10-16T16:45:00Z", "user_id": "u016" }
-{ "index": {} }
-{ "text": "Client aid response time is excellent.", "created_at": "2024-10-17T18:00:00Z", "user_id": "u017" }
-{ "index": {} }
-{ "text": "No induction was given when I joined.", "created_at": "2024-10-18T19:15:00Z", "user_id": "u018" }
-{ "index": {} }
-{ "text": "My group lacks proper coordination and it's affecting delivery.", "created_at": "2024-10-19T20:30:00Z", "user_id": "u019" }
-{ "index": {} }
-{ "text": "Customers reported delays in getting help.", "created_at": "2024-10-20T21:45:00Z", "user_id": "u020" }
+"My internal transfer gave me great growth opportunities."
+→ Matches: #bacghr_internalmove, #bacghr_career → "Internal Mobility", "Career Growth"
+
+"The career path and promotion process are unclear."
+→ Matches: #bacghr_career → "Career Growth", "Promotion Issues"
+
+"I felt the onboarding and orientation were very helpful."
+→ Matches: #bacghr_onboarding → "Onboarding", "Helpfulness of Induction"
+
+"Team collaboration has improved but issues remain."
+→ Matches: #bacghr_team → "Team Culture", "Teamwork Challenge"
+
+"Leadership feedback and development planning was excellent."
+→ Matches: "Leadership Feedback", "Leadership Growth"
+
+"Support from the end user desk was delayed again."
+→ Matches: "Support Complaints", "Customer Help"
+
+"The induction experience was confusing but necessary."
+→ Matches: "Onboarding Problems", "Helpfulness of Induction"
+
+"Promotion was denied despite consistent performance."
+_→ Matches: "Promotion Issues"
+
+"The environment has become stressful over the past quarter."
+_→ Matches: "Work Environment"
