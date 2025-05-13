@@ -51,4 +51,4 @@ curl -X GET "localhost:9200/comment_rules/_search" -H 'Content-Type: application
       }
     }
   }
-}'
+}'  
