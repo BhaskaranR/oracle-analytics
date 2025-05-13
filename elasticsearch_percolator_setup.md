@@ -25,12 +25,21 @@ PUT /comment_rules
 {
   "mappings": {
     "properties": {
-      "topic": { "type": "keyword" },
-      "query": { "type": "percolator" },
-      "exclude": { "type": "text" }
+      "text": {
+        "type": "text",
+        "term_vector": "with_positions_offsets",
+        "analyzer": "standard"
+      },
+      "topic": {
+        "type": "keyword"
+      },
+      "group_refs": {
+        "type": "keyword"
+      }
     }
   }
 }
+
 
 PUT /comments
 {
