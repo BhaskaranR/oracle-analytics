@@ -6,31 +6,31 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "The client support team was very responsive and helped resolve my issue quickly"
+        "comment_text": "The client support team was very responsive and helped resolve my issue quickly"
       }
     }
   }
 }'
 
-# 2. Career Concerns
+# 2. Career Concerns - Updated to use terms that match the synonym
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
       "field": "query",
       "document": {
-        "text": "I feel there is a lack of career growth opportunities in my current role"
+        "comment_text": "There is a lack of career development opportunities in my current role"
       }
     }
   }
 }'
 
-# 3. Learning and Growth
+# 3. Learning and Growth - Updated to keep terms closer together
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
       "field": "query",
       "document": {
-        "text": "The learning opportunities provided have contributed to my professional growth"
+        "comment_text": "The learning and growth opportunities here are excellent"
       }
     }
   }
@@ -42,7 +42,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "Our team collaboration has improved significantly over the past quarter"
+        "comment_text": "Our team collaboration has improved significantly over the past quarter"
       }
     }
   }
@@ -54,7 +54,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "I am interested in career advancement and promotion opportunities"
+        "comment_text": "I am interested in career advancement and promotion opportunities"
       }
     }
   }
@@ -66,7 +66,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "The orientation experience was well organized and informative"
+        "comment_text": "The orientation experience was well organized and informative"
       }
     }
   }
@@ -78,7 +78,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "My team provided excellent help during the project implementation"
+        "comment_text": "My team provided excellent help during the project implementation"
       }
     }
   }
@@ -90,7 +90,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "I would like to explore internal opportunities in other departments"
+        "comment_text": "I would like to explore internal opportunities in other departments"
       }
     }
   }
@@ -102,7 +102,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "The training session on new tools was very helpful"
+        "comment_text": "The training session on new tools was very helpful"
       }
     }
   }
@@ -114,7 +114,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "The onboarding process was smooth and well-structured"
+        "comment_text": "The onboarding process was smooth and well-structured"
       }
     }
   }
@@ -126,7 +126,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "The customer support team provided excellent assistance"
+        "comment_text": "The customer support team provided excellent assistance"
       }
     }
   }
@@ -138,7 +138,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
     "percolate": {
       "field": "query",
       "document": {
-        "text": "The client support team helped me with my career growth and learning opportunities"
+        "comment_text": "The client support team helped me with my career growth and learning opportunities"
       }
     }
   }
