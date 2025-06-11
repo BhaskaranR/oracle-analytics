@@ -101,4 +101,6 @@ curl -X POST "localhost:9200/comment_rules/_bulk" -H 'Content-Type: application/
 {"topic":"Employee Training","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"training","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"session","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
 {"index":{"_id":"12"}}
 {"topic":"Onboarding Process","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"onboarding","analyzer":"search_analyzer","max_gaps":2}},{"match":{"query":"process","analyzer":"search_analyzer","max_gaps":2}}]}}}}}
+{"index":{"_id":"13"}}
+{"topic":"Learning Growth Opportunities","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"learning","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"growth","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"opportunities","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
 '
