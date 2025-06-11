@@ -6,7 +6,7 @@
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "The client support team was very responsive and helped resolve my issue quickly"
       }
@@ -18,7 +18,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "There is a lack of career development opportunities in my current role"
       }
@@ -30,7 +30,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "The client support team was very helpful"
       }
@@ -42,7 +42,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "The learning and growth opportunities here are excellent"
       }
@@ -54,7 +54,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "Our team collaboration has improved significantly over the past quarter"
       }
@@ -66,7 +66,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "I am interested in career advancement and promotion opportunities"
       }
@@ -78,7 +78,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "The customer support team provided excellent assistance"
       }
@@ -90,7 +90,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "The orientation experience was well organized and informative"
       }
@@ -102,7 +102,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "My team provided excellent help during the project implementation"
       }
@@ -114,7 +114,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "I would like to explore internal opportunities in other departments"
       }
@@ -126,7 +126,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "The training session on new tools was very helpful"
       }
@@ -138,7 +138,7 @@ curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: applicatio
 curl -X POST "localhost:9200/comment_rules/_search" -H 'Content-Type: application/json' -d '{
   "query": {
     "percolate": {
-      "field": "rule_query",
+      "field": "query",
       "document": {
         "comment_text": "The onboarding process was smooth and well-structured"
       }
