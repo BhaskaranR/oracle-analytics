@@ -45,7 +45,12 @@ curl -X PUT "localhost:9200/comment_rules" -H 'Content-Type: application/json' -
         }
       },
       "analyzer": {
-        "synonym_search_analyzer": {
+        "index_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["lowercase"]
+        },
+        "search_analyzer": {
           "type": "custom",
           "tokenizer": "standard",
           "filter": ["lowercase", "synonym_rules"]
@@ -63,8 +68,8 @@ curl -X PUT "localhost:9200/comment_rules" -H 'Content-Type: application/json' -
       },
       "comment_text": {
         "type": "text",
-        "analyzer": "synonym_search_analyzer",
-        "search_analyzer": "synonym_search_analyzer"
+        "analyzer": "index_analyzer",
+        "search_analyzer": "search_analyzer"
       }
     }
   }
@@ -73,27 +78,27 @@ curl -X PUT "localhost:9200/comment_rules" -H 'Content-Type: application/json' -
 # Step 3: Bulk index percolator rules
 curl -X POST "localhost:9200/comment_rules/_bulk" -H 'Content-Type: application/x-ndjson' -d '
 {"index":{"_id":"1"}}
-{"topic":"Client Support","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"bacghr_client","analyzer":"synonym_analyzer","max_gaps":5}},{"match":{"query":"bacghr_support","analyzer":"synonym_analyzer","max_gaps":5}}]}}}}}
+{"topic":"Client Support","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"bacghr_client","analyzer":"search_analyzer","max_gaps":5}},{"match":{"query":"bacghr_support","analyzer":"search_analyzer","max_gaps":5}}]}}}}}
 {"index":{"_id":"2"}}
-{"topic":"Career Concerns","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"lack","analyzer":"synonym_analyzer","max_gaps":2}},{"match":{"query":"bacghr_career","analyzer":"synonym_analyzer","max_gaps":2}}]}}}}}
+{"topic":"Career Concerns","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"lack","analyzer":"search_analyzer","max_gaps":2}},{"match":{"query":"bacghr_career","analyzer":"search_analyzer","max_gaps":2}}]}}}}}
 {"index":{"_id":"3"}}
-{"topic":"Client Satisfaction","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"client","analyzer":"synonym_analyzer","max_gaps":5}},{"match":{"query":"support","analyzer":"synonym_analyzer","max_gaps":5}}]}}}}}
+{"topic":"Client Satisfaction","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"client","analyzer":"search_analyzer","max_gaps":5}},{"match":{"query":"support","analyzer":"search_analyzer","max_gaps":5}}]}}}}}
 {"index":{"_id":"4"}}
-{"topic":"Learning and Growth","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"learning","analyzer":"synonym_analyzer","max_gaps":3}},{"match":{"query":"growth","analyzer":"synonym_analyzer","max_gaps":3}}]}}}}}
+{"topic":"Learning and Growth","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"learning","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"growth","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
 {"index":{"_id":"5"}}
-{"topic":"Team Collaboration","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"team","analyzer":"synonym_analyzer","max_gaps":4}},{"match":{"query":"collaboration","analyzer":"synonym_analyzer","max_gaps":4}}]}}}}}
+{"topic":"Team Collaboration","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"team","analyzer":"search_analyzer","max_gaps":4}},{"match":{"query":"collaboration","analyzer":"search_analyzer","max_gaps":4}}]}}}}}
 {"index":{"_id":"6"}}
-{"topic":"Career Progression","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"promotion","analyzer":"synonym_analyzer","max_gaps":4}},{"match":{"query":"career","analyzer":"synonym_analyzer","max_gaps":4}}]}}}}}
+{"topic":"Career Progression","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"promotion","analyzer":"search_analyzer","max_gaps":4}},{"match":{"query":"career","analyzer":"search_analyzer","max_gaps":4}}]}}}}}
 {"index":{"_id":"7"}}
-{"topic":"Client Help","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"bacghr_client","analyzer":"synonym_analyzer","max_gaps":4}},{"match":{"query":"bacghr_support","analyzer":"synonym_analyzer","max_gaps":4}}]}}}}}
+{"topic":"Client Help","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"bacghr_client","analyzer":"search_analyzer","max_gaps":4}},{"match":{"query":"bacghr_support","analyzer":"search_analyzer","max_gaps":4}}]}}}}}
 {"index":{"_id":"8"}}
-{"topic":"Onboarding Feedback","query":{"intervals":{"comment_text":{"match":{"query":"orientation experience","analyzer":"synonym_analyzer","ordered":true,"max_gaps":2}}}}}
+{"topic":"Onboarding Feedback","query":{"intervals":{"comment_text":{"match":{"query":"orientation experience","analyzer":"search_analyzer","ordered":true,"max_gaps":2}}}}}
 {"index":{"_id":"9"}}
-{"topic":"Team Support","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"team","analyzer":"synonym_analyzer","max_gaps":3}},{"match":{"query":"help","analyzer":"synonym_analyzer","max_gaps":3}}]}}}}}
+{"topic":"Team Support","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"team","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"help","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
 {"index":{"_id":"10"}}
-{"topic":"Internal Movement","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"internal","analyzer":"synonym_analyzer","max_gaps":3}},{"match":{"query":"opportunity","analyzer":"synonym_analyzer","max_gaps":3}}]}}}}}
+{"topic":"Internal Movement","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"internal","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"opportunity","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
 {"index":{"_id":"11"}}
-{"topic":"Employee Training","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"training","analyzer":"synonym_analyzer","max_gaps":3}},{"match":{"query":"session","analyzer":"synonym_analyzer","max_gaps":3}}]}}}}}
+{"topic":"Employee Training","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"training","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"session","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
 {"index":{"_id":"12"}}
-{"topic":"Onboarding Process","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"onboarding","analyzer":"synonym_analyzer","max_gaps":2}},{"match":{"query":"process","analyzer":"synonym_analyzer","max_gaps":2}}]}}}}}
+{"topic":"Onboarding Process","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"onboarding","analyzer":"search_analyzer","max_gaps":2}},{"match":{"query":"process","analyzer":"search_analyzer","max_gaps":2}}]}}}}}
 '
