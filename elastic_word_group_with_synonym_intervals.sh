@@ -7,27 +7,27 @@ curl -X PUT "localhost:9200/_synonyms/word_groups" -H 'Content-Type: application
   "synonyms_set": [
     {
       "id": "bacghr_client",
-      "synonyms": ["client", "customer", "user", "end user"]
+      "synonyms": "bacghr_client => client, customer, user, end user"
     },
     {
       "id": "bacghr_internalmove",
-      "synonyms": ["internal", "transfer", "from_within", "lateral", "IJP"]
+      "synonyms": "bacghr_internalmove => internal, transfer, from_within, lateral, IJP"
     },
     {
       "id": "bacghr_career",
-      "synonyms": ["career", "promotion", "growth", "development"]
+      "synonyms": "bacghr_career => career, promotion, growth, development"
     },
     {
       "id": "bacghr_onboarding",
-      "synonyms": ["onboarding", "orientation", "induction"]
+      "synonyms": "bacghr_onboarding => onboarding, orientation, induction"
     },
     {
       "id": "bacghr_team",
-      "synonyms": ["team", "collaboration", "cooperation", "group"]
+      "synonyms": "bacghr_team => team, collaboration, cooperation, group"
     },
     {
       "id": "bacghr_support",
-      "synonyms": ["support", "assistance", "help", "aid"]
+      "synonyms": "bacghr_support => support, assistance, help, aid"
     }
   ]
 }'
