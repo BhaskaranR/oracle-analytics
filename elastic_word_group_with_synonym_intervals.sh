@@ -82,7 +82,7 @@ curl -X POST "localhost:9200/comment_rules/_bulk" -H 'Content-Type: application/
 {"index":{"_id":"2"}}
 {"topic":"Career Concerns","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"lack","analyzer":"search_analyzer","max_gaps":2}},{"match":{"query":"bacghr_career","analyzer":"search_analyzer","max_gaps":2}}]}}}}}
 {"index":{"_id":"3"}}
-{"topic":"Client Satisfaction","query":{"intervals":{"comment_text":{"match":{"query":"client support","analyzer":"search_analyzer","ordered":true,"max_gaps":3}}}}}
+{"topic":"Client Satisfaction","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"client","max_gaps":5}},{"match":{"query":"support","max_gaps":5}}]}}}}}
 {"index":{"_id":"4"}}
 {"topic":"Learning and Growth","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"learning","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"growth","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
 {"index":{"_id":"5"}}
@@ -90,7 +90,7 @@ curl -X POST "localhost:9200/comment_rules/_bulk" -H 'Content-Type: application/
 {"index":{"_id":"6"}}
 {"topic":"Career Progression","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"promotion","analyzer":"search_analyzer","max_gaps":4}},{"match":{"query":"career","analyzer":"search_analyzer","max_gaps":4}}]}}}}}
 {"index":{"_id":"7"}}
-{"topic":"Client Help","query":{"intervals":{"comment_text":{"match":{"query":"client support","analyzer":"search_analyzer","ordered":true,"max_gaps":3}}}}}
+{"topic":"Client Help","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"client","max_gaps":4}},{"match":{"query":"support","max_gaps":4}}]}}}}}
 {"index":{"_id":"8"}}
 {"topic":"Onboarding Feedback","query":{"intervals":{"comment_text":{"match":{"query":"orientation experience","analyzer":"search_analyzer","ordered":true,"max_gaps":2}}}}}
 {"index":{"_id":"9"}}
