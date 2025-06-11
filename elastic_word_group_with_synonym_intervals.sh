@@ -102,5 +102,7 @@ curl -X POST "localhost:9200/comment_rules/_bulk" -H 'Content-Type: application/
 {"index":{"_id":"12"}}
 {"topic":"Onboarding Process","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"onboarding","analyzer":"search_analyzer","max_gaps":2}},{"match":{"query":"process","analyzer":"search_analyzer","max_gaps":2}}]}}}}}
 {"index":{"_id":"13"}}
-{"topic":"Learning Growth Opportunities","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"learning","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"growth","analyzer":"search_analyzer","max_gaps":3}},{"match":{"query":"opportunities","analyzer":"search_analyzer","max_gaps":3}}]}}}}}
+{"topic":"Learning Growth Opportunities","query":{"intervals":{"comment_text":{"all_of":{"ordered":false,"intervals":[{"match":{"query":"learning","analyzer":"search_analyzer","max_gaps":5}},{"match":{"query":"growth","analyzer":"search_analyzer","max_gaps":5}}]}}}}}
+{"index":{"_id":"14"}}
+{"topic":"Simple Learning Growth","query":{"intervals":{"comment_text":{"match":{"query":"learning growth","analyzer":"search_analyzer","ordered":true,"max_gaps":3}}}}}
 '
